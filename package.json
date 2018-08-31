@@ -27,7 +27,12 @@
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
+    "humps": "^0.6.0",
+    "immutability-helper": "^2.7.1",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "20.0.4",
+    "lodash": "^3.10.1",
+    "normalizr": "^3.2.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -37,10 +42,16 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "^1.1.5",
     "redux": "^4.0.0",
     "redux-async-connect": "^1.0.0-rc4",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.0.0-beta.1",
     "redux-thunk": "^2.3.0",
     "resolve": "1.6.0",
+    "serve-favicon": "^2.3.0",
     "style-loader": "0.19.0",
     "styled-components": "^3.3.2",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -53,7 +64,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "jest": {
     "collectCoverageFrom": [

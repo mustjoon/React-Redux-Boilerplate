@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from '@common/link/Link';
 
 
-const StyledFooter = styled.header`
+const StyledHeader = styled.header`
   color: white;
   background: black
 `;
 
 const Header = (props) => (
-  <StyledFooter>
-      Header
-  </StyledFooter>
+  <StyledHeader>
+    <Link to='/create'>Create</Link>
+  </StyledHeader>
 )
 
 export default Header

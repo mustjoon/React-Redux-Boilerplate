@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { store } from './redux/create';
+
 
 
 import App from './App';
@@ -11,11 +11,17 @@ import {  BrowserRouter as Router,  } from 'react-router-dom';
 import './index.css';
 import Routes from './Routes';
 
-import api from './redux/api';
+
+
+import configureStore from './store/configureStore'
+import rootSaga from './sagas'
+
+const store = configureStore(window.__INITIAL_STATE__)
+store.runSaga(rootSaga)
 
 //export const store = createStore(window.__INITIAL_STATE__);
-console.log(store)
 
+/*
 if(process.env.NODE_ENV !== 'development') {
   console.log = function(){};
 }
@@ -23,7 +29,7 @@ if(process.env.NODE_ENV !== 'development') {
 
 // Init api service
 api.setStore(store);
-
+*/
 
 
 ReactDOM.render(
