@@ -12,6 +12,21 @@ import ListItem from '@components/list/ListeItem';
 
 import Error from '@components/common/error/Error';
 
+const propTypes = {
+  loadTodos: PropTypes.func.isRequired,
+  createTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  editTodo: PropTypes.func.isRequired,
+  todos: PropTypes.array
+}
+
+const defaultProps = {
+  loadTodos: () => {},
+  createTodo: () => {},
+  removeTodo: () => {},
+  editTodo: () => {},
+  todos: []
+}
 
 class SubPageSaga extends React.Component {
 
@@ -23,27 +38,26 @@ class SubPageSaga extends React.Component {
     console.log("Leaving SubPage");
   }
 
-  _onRemove = (id) => {
+  onRemoveClick = (id) => {
     this.props.removeTodo(id)
   }
 
-  _onClick = () => {
+  onClick = () => {
     this.props.editTodo({id: 1});
   }
 
-  renderTest = (item, index) => {
+  renderTest = (item) => {
     return (
-      <ListItem onClick={this._onRemove} key={index} item={item}/>
+      <ListItem onClick={this._onRemove} key={item.id} item={item}/>
     )
   }
   
   render() {
     const { todos, error } = this.props;
-    console.log("SUB render");
 
     return (
       <div>
-        {this.props.todos.map(this.renderTest)}
+        <List onRemoveClick={this.onRemoveClick} onClick={this.onClick} items={todos}/>
         <Error error={error}/>
         <Button onClick={this._onClick}>Clear items</Button>
       </div>
@@ -51,15 +65,9 @@ class SubPageSaga extends React.Component {
   }
 }
 
+SubPageSaga.propTypes = propTypes;
+SubPageSaga.defaultProps = defaultProps;
 
-
-SubPageSaga.propTypes = {
-  loadTodos: PropTypes.func.isRequired,
-  createTodo: PropTypes.func.isRequired,
-  removeTodo: PropTypes.func.isRequired,
-  editTodo: PropTypes.func.isRequired,
-  todos: PropTypes.array
-}
 
 function mapStateToProps(state) {
   const todos = getTodos(state);

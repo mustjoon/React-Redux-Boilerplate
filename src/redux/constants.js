@@ -12,3 +12,5 @@ export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
 
 export const LOAD_TODOS = 'LOAD_TODOS';
 export const CREATE_TODO = 'CREATE_TODO';
+
+export const CLEAR_ACTIVE = 'CLEAR_ACTIVE';
