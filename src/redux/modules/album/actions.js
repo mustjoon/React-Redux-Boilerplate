@@ -1,19 +1,17 @@
 
-
 import {REQUEST, SUCCESS, FAILURE } from '../../constants';
-import { createRequestTypes, action } from '../../actions';
-
-export const LOAD_ALBUMS = 'LOAD_ALBUMS';
-export const CREATE_ALBUM = 'CREATE_ALBUM';
-export const EDIT_ALBUM = 'EDIT_ALBUM';
-export const DELETE_ALBUM = 'DELETE_ALBUM';
-export const LOAD_SINGLE_ALBUM = 'LOAD_SINGLE_ALBUM';
-export const CLEAR_ALBUM_REDIRECT = 'CLEAR_ALBUM_REDIRECT';
-export const ALBUMS = createRequestTypes(LOAD_ALBUMS);
-export const ALBUM = createRequestTypes(LOAD_SINGLE_ALBUM);
-export const C_ALBUM = createRequestTypes(CREATE_ALBUM);
-export const D_ALBUM = createRequestTypes(DELETE_ALBUM)
-export const E_ALBUM = createRequestTypes(EDIT_ALBUM);
+import { createRequestTypes, action } from '../../actions';  
+export const LOAD_ALBUMS = 'LOAD_ALBUMS' ; 
+export const CREATE_ALBUM = 'CREATE_ALBUM'; 
+export const EDIT_ALBUM = 'EDIT_ALBUM';  
+export const DELETE_ALBUM = 'DELETE_ALBUM';  
+export const LOAD_SINGLE_ALBUM = 'LOAD_SINGLE_ALBUM';  
+export const CLEAR_ALBUM_REDIRECT = 'CLEAR_ALBUM_REDIRECT';  
+export const ALBUMS = createRequestTypes(LOAD_ALBUMS);  
+export const ALBUM = createRequestTypes(LOAD_SINGLE_ALBUM); 
+export const C_ALBUM = createRequestTypes(CREATE_ALBUM);  
+export const D_ALBUM = createRequestTypes(DELETE_ALBUM) 
+export const E_ALBUM = createRequestTypes(EDIT_ALBUM);  
 
 const ENTITY_NAME = 'album';
 
@@ -37,7 +35,7 @@ export const cAlbum = {
 
 export const dAlbum = {
   request: (album) => action(D_ALBUM[REQUEST], {id: album}),
-  success: (album, response) => action(D_ALBUM[SUCCESS], {entity: {type: 'albums', id: album}, response}),
+  success: (album, response) => action(D_ALBUM[SUCCESS], {entity: {type: 'album', id: album}, response}),
   failure: (album, error) => action(D_ALBUM[FAILURE], {album, error})
 }
 
@@ -53,5 +51,4 @@ export const loadAlbums = album => action(LOAD_ALBUMS, {album})
 export const removeAlbum = id => action(DELETE_ALBUM, {id});
 export const editAlbum = data => action(EDIT_ALBUM, {data});
 export const clearAlbumRedirect = () => action(CLEAR_ALBUM_REDIRECT);
-
-
+  

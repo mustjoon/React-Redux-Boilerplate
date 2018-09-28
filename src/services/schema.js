@@ -17,3 +17,6 @@ export const album = new schema.Entity('albums', {
 
 export const singleAlbum = new schema.Entity('albums');
 export const albumSchema = [album]
+
+
+  
