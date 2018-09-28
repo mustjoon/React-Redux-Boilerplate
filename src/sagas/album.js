@@ -1,15 +1,15 @@
 import { take, call, fork } from 'redux-saga/effects'
 
 import { fetchEntity } from './index';
-import { albumService as api } from '../services'
-import * as actions from '../actions/album'
+import { albumService as api } from '../services';
+import * as actions from  '@redux/modules/album/actions';
 
 const { album, albums, cAlbum, dAlbum, eAlbum } = actions;
 
 export const fetchOne = fetchEntity.bind(null, album, api.fetchOne);
 export const fetchAll = fetchEntity.bind(null, albums, api.fetchAll)
 export const fetchPost = fetchEntity.bind(null, cAlbum, api.create)
-export const fetchDelete = fetchEntity.bind(null, dAlbum, api.Remove);
+export const fetchDelete = fetchEntity.bind(null, dAlbum, api.remove);
 export const fetchEdit = fetchEntity.bind(null, eAlbum, api.edit);
 
 function* loadOne(id) {

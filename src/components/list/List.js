@@ -12,22 +12,24 @@ const propTypes = {
   theme: PropTypes.object,
   items: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
-  onRemoveClick: PropTypes.func.isRequired
+  onRemoveClick: PropTypes.func.isRequired,
+  prefix: PropTypes.string.isRequired
 }
 
 const defaultProps = {
   theme: {},
   items: [],
   onClick: () => {},
-  onRemoveClick: () => {}
+  onRemoveClick: () => {},
+  prefix: 'item'
 }
 
-const List = ({ theme, items = [], onClick, onRemoveClick }) => {
+const List = ({ prefix, theme, items = [], onClick, onRemoveClick }) => {
   return (
     <StyledList >
       {items.map((item) => {
         return (
-          <ListItem key={item.id} item={item} onButtonClick={onRemoveClick} onClick={onClick}/>
+          <ListItem key={item.id} prefix={prefix} item={item} onButtonClick={onRemoveClick} onClick={onClick}/>
         )
       })}
     </StyledList>

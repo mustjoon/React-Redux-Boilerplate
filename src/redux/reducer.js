@@ -2,8 +2,10 @@ import * as ActionTypes from './actions'
 import merge from 'lodash/object/merge'
 import { combineReducers } from 'redux'
 import update from 'immutability-helper';
+import { reducer as formReducer } from 'redux-form';
 
 import { todoReducer } from './modules/todo/reducer';
+import { albumReducer } from './modules/album/reducer';
 
 const CLEAR_ACTIVE = 'CLEAR_ACTIVE';
 const CREATE = 'CREATE';
@@ -98,7 +100,9 @@ function errorMessage(state = null, action) {
 const rootReducer = combineReducers({
   entities,
   errorMessage,
-  todo: todoReducer
+  todo: todoReducer,
+  album: albumReducer,
+  form: formReducer
 })
 
 export default rootReducer

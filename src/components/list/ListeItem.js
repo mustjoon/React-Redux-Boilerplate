@@ -9,14 +9,16 @@ const propTypes = {
   theme: PropTypes.object,
   item: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired
+  onButtonClick: PropTypes.func.isRequired,
+  prefix: PropTypes.string.isRequired
 }
 
 const defaultProps = {
   theme: {},
   item: {},
   onClick: () => {},
-  onButtonClick: () => {}
+  onButtonClick: () => {},
+  prefix: 'item'
 }
 
 const StyledListItem = styled.li`
@@ -37,8 +39,8 @@ class ListItem extends PureComponent {
   }
 
   render() {
-    const { item } = this.props;
-    const to = `item/${item.id}`;
+    const { item, prefix } = this.props;
+    const to = `/${prefix}/${item.id}`;
 
     return (
       <StyledListItem> 

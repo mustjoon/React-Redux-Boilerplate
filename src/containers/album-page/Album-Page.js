@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
-import { loadAlbum } from '../../actions/album'
-import { getActiveAlbum } from '../../redux/modules/album/selectors';
+import { loadAlbum } from '@redux/modules/album/actions';
+import { getActiveAlbum } from '@redux/modules/album/selectors';
 
 import Link from '@common/link/Link';
 
@@ -27,7 +27,11 @@ class AlbumPage extends Component {
   }
 
   render() {
-    return <Link to={'#'}>{this.props.activeAlbum.id}</Link>
+    const { activeAlbum: { id, title } } = this.props;
+
+    const editURL = `/album/edit/${id}`
+
+    return <Link to={editURL}>{title}</Link>
   }
 }
 

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 
 
 //import { clear, getTasks } from '@redux/modules/task';
-import { loadTodos, createTodo, removeTodo, editTodo } from '@redux/modules/todo/actions'
-import { getTodos } from '@redux/modules/todo/selectors';
+import { loadAlbums, createAlbum, removeAlbum, editAlbum } from '@redux/modules/album/actions'
+import { getAlbums } from '@redux/modules/album/selectors';
 import Button from '@common/button/Button';
 import List from     '@components/list/List';
 import ListItem from '@components/list/ListeItem';
@@ -14,25 +14,25 @@ import H1 from '@common/h1/H1';
 import Error from '@components/common/error/Error';
 
 const propTypes = {
-  loadTodos: PropTypes.func.isRequired,
-  createTodo: PropTypes.func.isRequired,
-  removeTodo: PropTypes.func.isRequired,
-  editTodo: PropTypes.func.isRequired,
-  todos: PropTypes.array
+  loadAlbums: PropTypes.func.isRequired,
+  createAlbum: PropTypes.func.isRequired,
+  removeAlbum: PropTypes.func.isRequired,
+  editAlbum: PropTypes.func.isRequired,
+  albums: PropTypes.array
 }
 
 const defaultProps = {
-  loadTodos: () => {},
-  createTodo: () => {},
-  removeTodo: () => {},
-  editTodo: () => {},
-  todos: []
+  loadAlbums: () => {},
+  createAlbum: () => {},
+  removeAlbum: () => {},
+  editAlbum: () => {},
+  albums: []
 }
 
-class SubPageSaga extends React.Component {
+class AlbumsPage extends React.Component {
 
   componentDidMount() {
-    this.props.loadTodos();
+    this.props.loadAlbums();
   }
 
   componentWillUnmount() {
@@ -54,16 +54,16 @@ class SubPageSaga extends React.Component {
   }
   
   render() {
-    const { todos, error } = this.props;
+    const { albums, error } = this.props;
 
     return (
       <div>
-        <H1>Todos</H1>
-        <List
+        <H1>Albums</H1>
+        <List 
           onRemoveClick={this.onRemoveClick}
           onClick={this.onClick}
-          items={todos}
-          prefix={'item'}
+          prefix={'album'} 
+          items={albums}
         />
         <Error error={error}/>
         <Button onClick={this._onClick}>Clear items</Button>
@@ -72,23 +72,23 @@ class SubPageSaga extends React.Component {
   }
 }
 
-SubPageSaga.propTypes = propTypes;
-SubPageSaga.defaultProps = defaultProps;
+AlbumsPage.propTypes = propTypes;
+AlbumsPage.defaultProps = defaultProps;
 
 
 function mapStateToProps(state) {
-  const todos = getTodos(state);
+  const albums = getAlbums(state);
   return {
-    todos
+    albums
   }
 }
 
 export default connect(
   mapStateToProps,
   {
-    loadTodos,
-    createTodo,
-    removeTodo,
-    editTodo
+    loadAlbums,
+    createAlbum,
+    removeAlbum,
+    editAlbum
   },
-)(SubPageSaga)
+)(AlbumsPage)

@@ -8,13 +8,15 @@ class BaseService {
     this.schema = schema;
   }
 
-  create(params) {
-    params.method = 'POST';
-    params.body = {
-      title: 'ttemp'
-    };
+  create = (params) => {
 
-    callApi(this.route, this.schema, params);
+    params.userId = 1; // Because of mock backend 
+    const options = {
+      method: 'POST',
+      body: params
+    }
+
+    return callApi(this.route, this.schema, options);
   }
 
   fetchOne = (id) => {
@@ -31,8 +33,13 @@ class BaseService {
   }
 
   edit = (params) => {
-    params.method = 'PUT';
-    return callApi(`${this.route}/${params.id}`, this.schema, params )
+    console.log("HERE?");
+    params.userId = 1; // Because of mock backend 
+    const options = {
+      method: 'PUT',
+      body: params
+    }
+    return callApi(`${this.route}/${params.id}`, this.schema, options )
   }
 }
 

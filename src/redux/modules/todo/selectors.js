@@ -19,3 +19,5 @@ export const getActiveAlbum = (state) => {
 }
 
 export const getTodoLoading = (state) => state.todo.isLoading;
+export const getRedirect = (state) => state.todo.redirect;
+export const getRedirectURL = (state) => state.todo.redirectURL;

@@ -18,4 +18,8 @@ export const getActiveAlbum = (state) => {
   return {};
 }
 
-export const getTodoLoading = (state) => state.todo.isLoading;
+export const getAlbums = (state) => state.entities.albums ? Object.values(state.entities.albums) : [];
+
+export const getAlbumLoading = (state) => state.album.isLoading;
+export const getRedirect = (state) => state.album.redirect;
+export const getRedirectURL = (state) => state.album.redirectURL;

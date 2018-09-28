@@ -10,7 +10,9 @@ const StyledHeader = styled.header`
 
 const Header = (props) => (
   <StyledHeader>
-    <Link to='/create'>Create</Link>
+    <Link to='/items'>Items</Link>
+    <Link to='/albums'>Albums</Link>
+    <Link to='/'>Frontpage</Link>
   </StyledHeader>
 )
 

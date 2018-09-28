@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
-import { loadTodo, clearActiveTodo } from '../../actions/todo'
-import { getActiveTodo, getTodoLoading } from '../../redux/modules/todo/selectors';
+import { loadTodo, clearActiveTodo } from '@redux/modules//todo/actions';
+import { getActiveTodo, getTodoLoading } from '@redux/modules/todo/selectors';
 
 import Link from '@common/link/Link';
 import Item from  '@components/item/Item';;
@@ -24,12 +24,9 @@ const defaultProps = {
 class ItemPage extends Component {
 
   componentDidMount() {
-    const { loadTodo, match: {params: { id }} } = this.props;
+    const { clearActiveTodo, loadTodo, match: {params: { id }} } = this.props;
+    clearActiveTodo();
     loadTodo(id);
-  }
-
-  componentWillUnmount() {
-    this.props.clearActiveTodo();
   }
 
   clear = () => {
@@ -38,12 +35,13 @@ class ItemPage extends Component {
 
   render() {
     const { activeTodo, isLoading } = this.props;
-    console.log(isLoading);
+    const editURL = `/item/edit/${activeTodo.id}`
 
     return (
       <div>
         {isLoading && <h1>Loading</h1>}
         <Item onClick={this.clear} item={activeTodo}/>
+        <Link to={editURL}>Edit</Link>
         <Link to='/items'>Back</Link>
       </div>
     )

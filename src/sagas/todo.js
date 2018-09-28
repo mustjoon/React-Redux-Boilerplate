@@ -2,15 +2,15 @@ import { take, call, fork } from 'redux-saga/effects'
 
 import { fetchEntity } from './index';
 import { todoService as api } from '../services'
-import * as actions from '../actions/todo'
+import * as actions from  '@redux/modules/todo/actions';
 
 const { todo, todos, cTodo, dTodo, eTodo } = actions;
 
 export const fetchTodo = fetchEntity.bind(null, todo, api.fetchOne);
 export const fetchTodos = fetchEntity.bind(null, todos, api.fetchAll)
 export const fetchPostTodos = fetchEntity.bind(null, cTodo, api.create)
-export const fetchDeleteTodo = fetchEntity.bind(null, dTodo, api.Remove);
-export const fetchEditTodo = fetchEntity.bind(null, eTodo, api.Edit);
+export const fetchDeleteTodo = fetchEntity.bind(null, dTodo, api.remove);
+export const fetchEditTodo = fetchEntity.bind(null, eTodo, api.edit);
 
 function* loadTodo(id) {
   yield call(fetchTodo, id);
@@ -22,7 +22,7 @@ function* loadTodos(todo, requiredFields) {
 }
 
 function* createTodo(todo) {
-  yield call(fetchPostTodos)
+  yield call(fetchPostTodos, todo)
 }
 
 function* removeTodo(id) {

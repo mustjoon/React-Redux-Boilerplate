@@ -8,6 +8,7 @@ export const CREATE_TODO = 'CREATE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 export const LOAD_SINGLE_TODO = 'LOAD_SINGLE_TODO';
+export const CLEAR_TODO_REDIRECT = 'CLEAR_TODO_REDIRECT';
 
 const ENTITY_NAME = 'todo';
 
@@ -31,7 +32,7 @@ export const todos = {
 }
 
 export const cTodo = {
-  request: (todo) => action(C_TODO[REQUEST], {}),
+  request: (todo) => action(C_TODO[REQUEST], {todo}),
   success: (todo, response) => action(C_TODO[SUCCESS], {todo, response}),
   failure: (todo, error) => action(C_TODO[FAILURE], {todo, error})
 }
@@ -54,4 +55,5 @@ export const loadTodos = todo => action(LOAD_TODOS, {todo})
 export const removeTodo = id => action(DELETE_TODO, {id});
 export const editTodo = data => action(EDIT_TODO, {data});
 export const clearActiveTodo = () => action(CLEAR_ACTIVE, {entity: ENTITY_NAME});
+export const clearTodoRedirect = () => action(CLEAR_TODO_REDIRECT);
 
