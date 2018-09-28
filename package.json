@@ -110,5 +110,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "bin": {
+    "crudplz": "./scripts/crudCommand.js"
   }
 }

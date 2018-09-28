@@ -1,4 +1,4 @@
-import { normalize, schema } from 'normalizr'
+import { schema } from 'normalizr'
 
 export const todo = new schema.Entity('todos', {
 });
