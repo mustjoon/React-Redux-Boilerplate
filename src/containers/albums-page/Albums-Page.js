@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
+import {
+  loadAlbums, 
+  createAlbum, 
+  removeAlbum, 
+  editAlbum } from '@redux/modules/album/actions'
 
-//import { clear, getTasks } from '@redux/modules/task';
-import { loadAlbums, createAlbum, removeAlbum, editAlbum } from '@redux/modules/album/actions'
 import { getAlbums } from '@redux/modules/album/selectors';
 import Button from '@common/button/Button';
 import List from     '@components/list/List';

@@ -5,11 +5,7 @@ import thunk from 'redux-thunk';
 
 import reducer from './modules/reducer';
 
-console.log("ALRIGHT");
-export const wtf = 'teST';
-
 const createStore = (initialState = {}) => {
-  console.log("hmm?");
   // ======================================================
   // Middleware Configuration
   // ======================================================

@@ -5,8 +5,20 @@ import { Redirect } from 'react-router-dom';
 
 import ItemForm from '@components/form/item/Item';
 import Button from '@common/button/Button';
-import { loadTodo, createTodo, editTodo, removeTodo, clearTodoRedirect } from '@redux/modules/todo/actions';
-import { getActiveTodo, getTodoLoading, getRedirect, getRedirectURL } from '@redux/modules/todo/selectors';
+import {
+  loadTodo,
+  createTodo,
+  editTodo, 
+  removeTodo, 
+  clearTodoRedirect }
+from '@redux/modules/todo/actions';
+
+import { 
+  getActiveTodo, 
+  getTodoLoading, 
+  getRedirect, 
+  getRedirectURL }
+from '@redux/modules/todo/selectors';
 
 const propTypes = {
   match: PropTypes.object.isRequired,

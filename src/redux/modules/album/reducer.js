@@ -1,6 +1,5 @@
 import { ALBUM, ALBUMS, E_ALBUM, D_ALBUM, CLEAR_ALBUM_REDIRECT } from './actions';
-import {REQUEST, SUCCESS, FAILURE, CLEAR_ACTIVE } from '../../constants';
-import update from 'immutability-helper';
+import { SUCCESS, FAILURE } from '../../constants';
 import merge from 'lodash/object/merge'
 
 const initialState = {

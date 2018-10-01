@@ -2,7 +2,7 @@
 import { put, call, fork, all } from 'redux-saga/effects'
 import { watchLoadTodo, watchLoadTodos, watchCreateTodo, watchEditTodo, watchRemoveTodo } from './todo';
 import { watchLoadAlbum, watchLoadAlbums, watchCreateAlbum, watchEditAlbum, watchRemoveAlbum } from './album';
-
+import { watchLogin, watchRegister } from './auth';
 /***************************** Subroutines ************************************/
 
 // resuable fetch Subroutine
@@ -13,8 +13,11 @@ import { watchLoadAlbum, watchLoadAlbums, watchCreateAlbum, watchEditAlbum, watc
 export function* fetchEntity(entity, apiFn, id, url) {
   yield put( entity.request(id) )
   const {response, error} = yield call(apiFn, url || id)
-  if(response)
+  if(response) {
     yield put( entity.success(id, response) )
+    return response;
+  }
+  
   else
     yield put( entity.failure(id, error) )
 }
@@ -31,6 +34,9 @@ export default function* root() {
     fork(watchCreateAlbum),
     fork(watchRemoveAlbum),
     fork(watchEditAlbum),
-    fork(watchLoadAlbum)
+    fork(watchLoadAlbum),
+
+    fork(watchLogin),
+    fork(watchRegister)
   ])
 }

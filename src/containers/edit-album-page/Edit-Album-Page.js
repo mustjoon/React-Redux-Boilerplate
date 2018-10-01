@@ -2,11 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom';
+import Container from '@common/container/Container';
 
 import AlbumForm from '@components/form/album/Album';
 import Button from '@common/button/Button';
-import { loadAlbum, createAlbum, editAlbum, removeAlbum, clearAlbumRedirect } from '@redux/modules/album/actions';
-import { getActiveAlbum, getAlbumLoading, getRedirect, getRedirectURL } from '@redux/modules/album/selectors';
+import {
+  loadAlbum,
+  createAlbum,
+  editAlbum,
+  removeAlbum, 
+  clearAlbumRedirect 
+} from '@redux/modules/album/actions';
+
+import {
+  getActiveAlbum, 
+  getAlbumLoading, 
+  getRedirect, 
+  getRedirectURL } from '@redux/modules/album/selectors';
 
 const propTypes = {
   match: PropTypes.object.isRequired,
@@ -62,11 +74,11 @@ class EditAlbumPage extends React.Component {
     const { activeAlbum, redirect, redirectURL } = this.props;
 
     return (
-      <div>
+      <Container>
         {redirect && <Redirect to={redirectURL}/>}
         {activeAlbum.id && <Button onClick={this.onRemoveClick}>X</Button>}
         <AlbumForm item={activeAlbum} onSubmit={this.onSubmit} />
-      </div>
+      </Container>
     );
   }
 }
@@ -82,7 +94,6 @@ const mapStateToProps = (state) => {
     redirectURL: getRedirectURL(state)
   }
 }
-
 
 export default connect(mapStateToProps, {
   loadAlbum,

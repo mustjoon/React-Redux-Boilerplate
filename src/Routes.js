@@ -1,6 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import AuthRequired from './components/auth-required/Auth-Required';
+
+import AuthPage from './containers/auth-page/Auth-Page';
+
+import LoginPage from './containers/login-page/Login-Page';
+import RegisterPage from './containers/register-page/register-page';
+
 import FrontPage from './containers/front-page/Front-Page';
 //import SubPage from './containers/sub-page/Sub-Page';
 import SubPageSaga from './containers/sub-page-saga/Sub-Page-Saga';
@@ -23,6 +30,9 @@ const Routes = ({ store }) => {
       <Route path='/item/:id' component={ItemPage}/>
       <Route path='/album/:id' component={AlbumPage}/>
       <Route path='/albums' component={AlbumsPage}/>
+      <AuthRequired redirect={true} path='/auth-required' component={AuthPage}/>
+      <Route path='/login' component={LoginPage}/>
+      <Route path='/register' component={RegisterPage}/>
       
     </Switch>
   )

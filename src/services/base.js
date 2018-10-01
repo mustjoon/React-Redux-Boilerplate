@@ -33,7 +33,6 @@ class BaseService {
   }
 
   edit = (params) => {
-    console.log("HERE?");
     params.userId = 1; // Because of mock backend 
     const options = {
       method: 'PUT',

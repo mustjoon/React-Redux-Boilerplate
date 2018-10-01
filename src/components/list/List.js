@@ -4,6 +4,7 @@ import ListItem from './ListeItem';
 import PropTypes from 'prop-types'
 
 const StyledList = styled.ul`
+  padding-left: 0;
   background: ${props => props.theme.backgroundColor ? props.theme.backgroundColor : 'white'};
   color: ${props => props.theme.textColor ? props.theme.textColor : 'black'};
 `;

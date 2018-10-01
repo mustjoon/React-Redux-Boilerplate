@@ -4,7 +4,7 @@ import Button from '@common/button/Button';
 
 const SubmitField = (props) => {
   return (
-    <Button type='button'>{props.label}</Button>
+    <Button disabled={props.disabled} type='button'>{props.label}</Button>
   )
 }
 

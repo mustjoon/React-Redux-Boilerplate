@@ -1,6 +1,5 @@
 import { TODO, TODOS, E_TODO, D_TODO, CLEAR_TODO_REDIRECT } from './actions';
-import {REQUEST, SUCCESS, FAILURE, CLEAR_ACTIVE } from '../../constants';
-import update from 'immutability-helper';
+import { SUCCESS, FAILURE } from '../../constants';
 import merge from 'lodash/object/merge'
 
 const initialState = {
@@ -15,7 +14,6 @@ const hideLoadingActions = [
   TODOS[SUCCESS],
   TODOS[FAILURE],
 ]
-
 
 export function todoReducer(state = initialState, action) {
   switch (action.type) {

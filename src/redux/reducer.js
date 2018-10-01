@@ -6,6 +6,7 @@ import { reducer as formReducer } from 'redux-form';
 
 import { todoReducer } from './modules/todo/reducer';
 import { albumReducer } from './modules/album/reducer';
+import { authReducer } from './modules/auth/reducer';
 
 const CLEAR_ACTIVE = 'CLEAR_ACTIVE';
 const CREATE = 'CREATE';
@@ -102,7 +103,8 @@ const rootReducer = combineReducers({
   errorMessage,
   todo: todoReducer,
   album: albumReducer,
-  form: formReducer
+  form: formReducer,
+  auth: authReducer
 })
 
 export default rootReducer

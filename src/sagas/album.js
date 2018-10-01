@@ -18,7 +18,7 @@ function* loadAlbum(id) {
 }
 
 function* loadAlbums(album, requiredFields) {
-  yield call(fetchAlbum)
+  yield call(fetchAlbums)
 }
 
 function* createAlbum(album) {

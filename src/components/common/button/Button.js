@@ -7,8 +7,8 @@ const StyledButton = styled.button`
   color: ${props => props.theme.textColor ? props.theme.textColor : 'black'};
 `;
 
-const Button = ({ onClick, children, color, theme }) => (
-  <StyledButton color = {color} onClick = {onClick}>
+const Button = ({ onClick, children, color, theme, disabled }) => (
+  <StyledButton disabled={disabled} color = {color} onClick = {onClick}>
       { children }
   </StyledButton>
 )

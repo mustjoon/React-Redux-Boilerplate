@@ -14,7 +14,7 @@ class Fields extends PureComponent {
   }
 
   renderSubmit = (props) => {
-    return <SubmitField key={props.name} label={props.label}/>
+    return <SubmitField disabled={props.disabled} key={props.name} label={props.label}/>
   }
 
   getField = (props) => {
@@ -22,6 +22,8 @@ class Fields extends PureComponent {
       case 'text':
         return this.renderText(props);
       case 'textarea':
+        return this.renderText(props);
+      case 'password':
         return this.renderText(props);
       case 'submit':
         return this.renderSubmit(props);
