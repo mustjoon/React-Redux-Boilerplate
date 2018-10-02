@@ -10,8 +10,10 @@ const StyledApp = styled.div`
   font-family: Open sans;
   width: 100%;
   height: 100%;
+  padding-bottom: 60px
   text-align: center;
   min-height: 100%;
+  position: relative;
 `;
 
 class App extends Component {
